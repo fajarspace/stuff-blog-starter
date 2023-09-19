@@ -1451,14 +1451,14 @@ h1 {
 }
 .nav-line .nav-link {
   margin-left: 0.75rem;
-  --text-opacity: 1;
+  /* --text-opacity: 1; */
   color: #718096;
   color: rgba(113, 128, 150, var(--text-opacity));
 }
 .nav-line span.nav-link {
   margin-left: 0.75rem;
   --text-opacity: 1;
-  color: #1a202c;
+  /* color: #1a202c; */
   color: rgba(26, 32, 44, var(--text-opacity));
   cursor: default;
 }
@@ -2439,7 +2439,7 @@ h1 {
     }
   }
   .md\:prose {
-    color: #000;
+    /* color: #000; */
     max-width: 65ch;
   }
   .md\:prose [class~="lead"] {
@@ -2454,7 +2454,7 @@ h1 {
     text-decoration: underline;
   }
   .md\:prose strong {
-    color: #1a202c;
+    /* color: #1a202c; */
     font-weight: 600;
   }
   .md\:prose ol {
@@ -2480,7 +2480,7 @@ h1 {
   .md\:prose ul > li:before {
     content: "";
     position: absolute;
-    background-color: #cbd5e0;
+    /* background-color: #cbd5e0; */
     border-radius: 50%;
     width: 0.375em;
     height: 0.375em;
@@ -2497,9 +2497,9 @@ h1 {
   .md\:prose blockquote {
     font-weight: 500;
     font-style: italic;
-    color: #1a202c;
+    /* color: #1a202c; */
     border-left-width: 0.25rem;
-    border-left-color: #e2e8f0;
+    /* border-left-color: #e2e8f0; */
     quotes: "\201C""\201D""\2018""\2019";
     margin-top: 1.6em;
     margin-bottom: 1.6em;
@@ -2512,7 +2512,7 @@ h1 {
     content: close-quote;
   }
   .md\:prose h1 {
-    color: #1a202c;
+    /* color: #1a202c; */
     font-weight: 800;
     font-size: 2.25em;
     margin-top: 0;
@@ -2520,7 +2520,7 @@ h1 {
     line-height: 1.1111111;
   }
   .md\:prose h2 {
-    color: #1a202c;
+    /* color: #1a202c; */
     font-weight: 700;
     font-size: 1.5em;
     margin-top: 2em;
@@ -2535,7 +2535,7 @@ h1 {
   }
   .md\:prose h3,
   .md\:prose h4 {
-    color: #1a202c;
+    /* color: #1a202c; */
     font-weight: 600;
   }
   .md\:prose h4 {
@@ -5273,7 +5273,4 @@ img.next-image {
 }
 .prose a {
   color: #0074de;
-}
-.nav-line .nav-link {
-  color: #69778c;
 }

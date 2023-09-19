@@ -14,10 +14,7 @@ const index = () => {
           target="_blank"
           rel="noopener"
           href="https://vercel.com/new/git/external?repository-url=https://github.com/vercel-solutions/nextjs-portfolio-starter&amp;project-name=portfolio&amp;repository-name=portfolio"
-        >
-          <strong>Deploy your own</strong>
-        </a>{" "}
-        in a few minutes.
+        ></a>
       </p>
       <hr />
     </RootLayout>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import Theme from "./Theme";
 
 const Navbar = () => {
   return (
@@ -15,6 +15,7 @@ const Navbar = () => {
         <Link className="nav-link" href="/posts">
           Posts
         </Link>
+        <Theme />
       </div>
     </>
   );
