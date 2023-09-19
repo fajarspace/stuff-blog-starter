@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
       </Head>
       <ThemeProvider>
         <div className={inter.className}>
-          <article className="container md:prose">
+          <article className="container prose md:prose">
             <Navbar />
             {children}
             <Footer />
