@@ -357,7 +357,7 @@ video {
 .prose blockquote {
   font-weight: 500;
   font-style: italic;
-  color: #1a202c;
+  /* color: #1a202c; */
   border-left-width: 0.25rem;
   border-left-color: #e2e8f0;
   quotes: "\201C""\201D""\2018""\2019";
@@ -1409,7 +1409,7 @@ h1 {
 }
 .meta,
 .meta .tag {
-  color: #718096;
+  color: #a0aec0;
   color: rgba(113, 128, 150, var(--text-opacity));
 }
 .meta .tag {
@@ -1422,8 +1422,8 @@ h1 {
   line-height: 1.25rem;
   text-decoration: none;
   --bg-opacity: 1;
-  background-color: #e2e8f0;
-  background-color: rgba(226, 232, 240, var(--bg-opacity));
+  /* background-color: #a0aec0;
+  background-color: rgba(226, 232, 240, var(--bg-opacity)); */
   --text-opacity: 1;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1618,7 +1618,7 @@ h1 {
     margin-top: 0.8571429em;
   }
   .md\:prose code {
-    color: #1a202c;
+    /* color: #1a202c; */
     font-weight: 600;
     font-size: 0.875em;
   }
@@ -2421,14 +2421,14 @@ h1 {
   font-style: normal;
   font-weight: 100 900;
   font-display: block;
-  src: url(../public/fonts/fonts-Inter-roman.latin.var.woff2) format("woff2");
+  src: url(../fonts/fonts-Inter-roman.latin.var.woff2) format("woff2");
 }
 @font-face {
   font-family: Inter var;
   font-style: italic;
   font-weight: 100 900;
   font-display: block;
-  src: url(../public/fonts/fonts-Inter-italic.latin.var.woff2) format("woff2");
+  src: url(../fonts/fonts-Inter-italic.latin.var.woff2) format("woff2");
   font-named-instance: "Italic";
 }
 body {

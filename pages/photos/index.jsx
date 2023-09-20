@@ -1,55 +1,88 @@
-import React from "react";
+import fs from "fs";
+import path from "path";
+import Head from "next/head";
+import matter from "gray-matter";
 import RootLayout from "../layout";
+import Link from "next/link";
+import { metadata } from "@/theme.config";
+import styles from "./page.module.css";
+import { useRouter } from "next/router";
 
-const Photos = () => {
+export const getStaticProps = async () => {
+  const files = fs.readdirSync(path.join("content/photos"));
+
+  const photos = files.map((filename) => {
+    const markdownWithMeta = fs.readFileSync(
+      path.join("content/photos", filename),
+      "utf-8"
+    );
+    const { data: frontmatter } = matter(markdownWithMeta);
+
+    const slug = filename.split(".")[0];
+    return {
+      frontmatter,
+      slug,
+      href: `/${slug}`,
+    };
+  });
+
+  return {
+    props: {
+      photos,
+    },
+  };
+};
+
+const Photos = ({ photos }) => {
+  const pageTitle = `${metadata.title} - Photos`;
+  const router = useRouter();
+  const { page } = router.query;
+
+  const itemsPerPage = 3; // Ubah sesuai dengan jumlah foto per halaman yang Anda inginkan
+  const startIndex = page ? (parseInt(page) - 1) * itemsPerPage : 0;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedPhotos = photos.slice(startIndex, endIndex);
+
+  const totalPages = Math.ceil(photos.length / itemsPerPage);
+
   return (
     <>
       <RootLayout>
+        <Head>
+          <title>{pageTitle}</title>
+        </Head>
         <h1>Photos</h1>
-
-        <p>Here's some of my photography.</p>
-        <div
-          style={{
-            display: "inline-block",
-            maxWidth: "100%",
-            overflow: "hidden",
-            position: "relative",
-            boxSizing: "border-box",
-            margin: 0,
-          }}
-        >
-          <div
-            style={{
-              boxSizing: "border-box",
-              display: "block",
-              maxWidth: "100%",
-            }}
-          >
+        {paginatedPhotos.map((photo, index) => (
+          <div key={index}>
             <img
-              style={{
-                maxWidth: "100%",
-                display: "block",
-                margin: 0,
-                border: "none",
-                padding: 0,
-              }}
-              alt=""
+              className={styles.photo}
+              alt={photo.title}
               aria-hidden="true"
-              src="https://images.unsplash.com/photo-1693917566028-c0f204817a97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+              src={photo.frontmatter.photo}
             />
+            <p>{photo.frontmatter.description}</p>
+            <p>
+              <a target="_blank" rel="noopener" href={photo.frontmatter.photo}>
+                Full screen &#8599;
+              </a>
+            </p>
           </div>
-        </div>
-        <p>
-          <a
-            target="_blank"
-            rel="noopener"
-            href="https://unsplash.com/photos/WeYamle9fDM"
-          >
-            Unsplash &#8599;
-          </a>
-        </p>
+        ))}
 
-        <ul></ul>
+        <div className={styles.pagination}>
+          {Array.from({ length: totalPages }, (_, i) => (
+            <Link
+              className={`${styles.span} active`}
+              key={i}
+              href={`/photos?page=${i + 1}`}
+            >
+              <span className={parseInt(page) === i + 1 ? "active" : ""}>
+                {i + 1}
+              </span>
+            </Link>
+          ))}
+        </div>
+        <hr />
       </RootLayout>
     </>
   );

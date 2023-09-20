@@ -7,7 +7,7 @@ import RootLayout from "./layout";
 import Link from "next/link";
 
 const PostPage = ({
-  frontMatter: { title, date, description, tag, author },
+  frontMatter: { title, date, tags, author },
   mdxSource,
 }) => {
   return (
@@ -16,15 +16,15 @@ const PostPage = ({
         <h1>{title}</h1>
         <div className="meta-line">
           <div className="meta">
-            {author}, <time>{date}</time> &bull; &nbsp;
-            <span className="tag">{tag}</span>
+            {author}, <time>{date}</time> &bull;
+            <span className="tag">{tags.join(", ")}</span>
           </div>
           <Link className="meta-back" href="/">
             Back
           </Link>
         </div>
-
         <MDXRemote {...mdxSource} />
+        <hr />
       </RootLayout>
     </>
   );
