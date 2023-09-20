@@ -10,6 +10,8 @@ const PostPage = ({
   frontMatter: { title, date, tags, author },
   mdxSource,
 }) => {
+  const formattedTags = tags.join(", ");
+
   return (
     <>
       <RootLayout>
@@ -17,7 +19,7 @@ const PostPage = ({
         <div className="meta-line">
           <div className="meta">
             {author}, <time>{date}</time> &bull;
-            <span className="tag">{tags.join(", ")}</span>
+            <span className="tag">{formattedTags}</span>
           </div>
           <Link className="meta-back" href="/">
             Back
