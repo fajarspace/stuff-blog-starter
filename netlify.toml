@@ -3,4 +3,4 @@
   publish = ".next"
 
 [build.environment]
-  NODE_VERSION = "18"  # Ganti dengan versi Node.js yang sesuai dengan persyaratan ESLint
+  NODE_VERSION = "16"  # Ganti dengan versi Node.js yang sesuai dengan persyaratan ESLint
